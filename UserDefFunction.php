@@ -42,7 +42,7 @@ echo 'User Defined Functions.. <br>';
 $name = '';
 
 if(isset($name)){
-    echo 'Variable is Declared';
+    echo 'Variable is Declared' . '<br>';
 
 }else{
     echo 'Variable is not declared';
@@ -50,13 +50,13 @@ if(isset($name)){
 
 // Example of empty()
 
-$name2 = 'Rajat';
-
-if(isset($name)){
-    echo 'Name is Declared';
+$name2 = 'rajat'; // Even if we declare the value it will return not empty line
+ 
+if(empty($name2)){
+    echo 'Name is empty';
 
 }else{
-    echo 'Name is not declared';
+    echo 'Name is not empty';
 }
 
 
