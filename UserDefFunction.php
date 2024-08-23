@@ -12,17 +12,17 @@ echo 'User Defined Functions.. <br>';
 
 */
 
-$a = 12;
-$b = 8;
-$total = sum($a, $b);
-echo $total;
+// $a = 12;
+// $b = 8;
+// $total = sum($a, $b);
+// echo $total;
 
 
-function sum($num1, $num2)
-{
-    return $num1 + $num2;
+// function sum($num1, $num2)
+// {
+//     return $num1 + $num2 .'<br';
 
-}
+// }
 
 
 // isset,empty function
@@ -32,6 +32,37 @@ function sum($num1, $num2)
 
 // empty()
 // Return TRUE, if a variable is not declared, false, null
+
+
+?>
+
+<?php 
+
+// Example of isset()
+$name = '';
+
+if(isset($name)){
+    echo 'Variable is Declared';
+
+}else{
+    echo 'Variable is not declared';
+}
+
+// Example of empty()
+
+$name2 = 'Rajat';
+
+if(isset($name)){
+    echo 'Name is Declared';
+
+}else{
+    echo 'Name is not declared';
+}
+
+
+
+
+
 
 
 ?>
