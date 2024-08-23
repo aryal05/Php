@@ -2,7 +2,30 @@
 
 // Get And Post Method
 
-print_r($_GET);
+// if(isset($_GET['submit'])){
+//    if(empty($_GET['username'])){
+//     echo 'Usename is required';
+//    }
+//    else if(empty($_GET['password'])){
+//     echo 'Password is required';
+//    }
+//    else{
+//     echo 'Username and Password is Filled';
+//    }
+// }
+
+// post method\
+if(isset($_POST['submit'])){
+    if(empty($_POST['username'])){
+     echo 'Usename is required';
+    }
+    else if(empty($_POST['password'])){
+     echo 'Password is required';
+    }
+    else{
+     echo 'Username and Password is Filled';
+    }
+ }
 
 
 ?>
@@ -16,7 +39,7 @@ print_r($_GET);
     <title>Get,Post Method</title>
 </head>
 <body>
-    <form action="GetPostHTTP.php" method="get">
+    <form action="GetPostHTTP.php" method="post">
         <div>
         <label>UserName:</label>
         <input type="text" name="username"> 
@@ -29,7 +52,7 @@ print_r($_GET);
         <br>
         
         <div>
-            <button type="submit">Login</button>
+            <button type="submit" name="submit">Login</button>
 
 
         </div>
