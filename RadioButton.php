@@ -23,7 +23,7 @@
        <input type="checkbox" name="foods[]" value="Vegies"> Vegies <br>
         
 
-       <input type="submit" value="Confirm" name="confirm">
+       <input type="submit" value="Confirm" name="confirm"> <br>
 
 
 
@@ -38,7 +38,9 @@
     
    if(isset($_POST['confirm'])){
     $foods = $_POST['foods'];
-    echo $foods;
+    foreach($foods as $food){
+        echo 'You have selected : ' . "<b>$food </b>".'<br>';
+    }
    }
     
     ?>
