@@ -20,7 +20,7 @@ $dbName = 'php';
 
 
 //Connecting with procedural approach 
-$conn = mysqli_connect($servername, $username, $password, $dbName);
+$conn = @mysqli_connect($servername, $username, $password, $dbName);
 
 if($conn){
     echo 'Connected Successfully';
