@@ -4,13 +4,25 @@
  include ('config/database.php'); // also you can write require
 
 // Insert Query
-$date = date("Y-m-d H:i:s");
-$sql = "insert into users (username, password, created_at) values('heris','passwordsasdsdas', '$date')";
+// $date = date("Y-m-d H:i:s");
+// $sql = "insert into users (username, password, created_at) values('heris','passwordsasdsdas', '$date')";
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+// if ($conn->query($sql) === TRUE) {
+//     echo "New record created successfully";
+// } else {
+//     echo "Error: " . $sql . "<br>" . $conn->error;
+// }
+
+//SELECT QUERY
+
+$sql = 'select username, id, created_at from users';
+$result = $conn->query($sql);
+if($result -> num_rows >0){
+    while($row = $result->fetch_assoc()){
+        echo '<pre>';
+        print_r($row);
+    }
 }
+
 
 ?>
