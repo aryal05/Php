@@ -15,20 +15,38 @@
 
 //SELECT QUERY
 
-$sql = 'select username, id, created_at from users';
-$result = $conn->query($sql);
-if($result -> num_rows >0){
-    while($row = $result->fetch_assoc()){
-        echo '<pre>';
-        print_r($row);
-    }
-}
+// $sql = 'select username, id, created_at from users';
+// $result = $conn->query($sql);
+// if($result -> num_rows >0){
+//     while($row = $result->fetch_assoc()){
+//         echo '<pre>';
+//         print_r($row);
+//     }
+// }
 
 
 
 
 // UPDATE QUERY
 
+$sql = "update users set username = 'aryal', password = 'Updaryallrd' where id = 1";
+$result = $conn->query($sql);
+
+if($result){
+    echo 'Updation done';
+}
+
+
+
+
+// Delete Query
+
+$sql = "delete from users where id = 2";
+$result = $conn->query($sql);
+
+if($result){
+echo 'Deleted';
+}
 
 
 ?>
