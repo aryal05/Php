@@ -15,18 +15,28 @@ $password = '';
 $dbName = 'php';
 
 
-//Create Connection
-$conn = new mysqli($servername,$username, $password, $dbName);
+//Create Connection by oops
+// $conn = new mysqli($servername,$username, $password, $dbName);
+
+
+//Connecting with procedural approach 
+$conn = mysqli_connect($servername, $username, $password, $dbName);
+
+if($conn){
+    echo 'Connected Successfully';
+}else{
+    echo'Server Error Not Connected';
+}
 
 
 // Check connection
 
-if($conn->connect_error){
-    echo 'Conection failed:' . $conn-> connect_error;
-    exit;
-}
+// if($conn->connect_error){
+//     echo 'Conection failed:' . $conn-> connect_error;
+//     exit;
+// }
 
-echo 'Connection Sucessful';
+// echo 'Connection Sucessful';
 
 
 ?>
