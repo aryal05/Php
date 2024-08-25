@@ -33,7 +33,7 @@ $sql = "update users set username = 'aryal', password = 'Updaryallrd' where id =
 $result = $conn->query($sql);
 
 if($result){
-    echo 'Updation done';
+    echo 'Updation done'. '<br>';
 }
 
 

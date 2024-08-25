@@ -23,7 +23,7 @@ $dbName = 'php';
 $conn = @mysqli_connect($servername, $username, $password, $dbName);
 
 if($conn){
-    echo 'Connected Successfully';
+    echo 'Connected Successfully' . '<br>';
 }else{
     echo'Filed to connect, error:' . mysqli_connect_error();
 }
