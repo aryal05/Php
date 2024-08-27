@@ -1,8 +1,26 @@
+<?php
+include("./partials/dbconnect.php");
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+$showAlert = false;
+$showError = false;
+$username = $_POST['username'];
+$password = $_POST['password'];
+$cpassword = $_POST['cpassword'];
 
+$exists = false;
 
+if(($password == $cpassword) && $exists == false){
+ $sql = "INSERT INTO users (username, password, dt) VALUES ('$username', '$password', CURRENT_TIMESTAMP)";
+  $result = mysqli_query($conn, $sql);
+  if($result){
+    $showAlert = true;
 
-
-
+  }
+}else{
+  $showError = true;
+}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
