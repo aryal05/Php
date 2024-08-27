@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +14,29 @@
 <body>
 <?php include('partials/_nav.php'); ?>
 
+<?php
+if($showAlert){
+echo
+'<div class="alert alert-success" role="alert">
+ Your Account is Created!
+</div>';
+};
+?>
+<?php
+if($showError){
+echo
+'<div class="alert alert-warning" role="alert">
+ Password did not match!
+</div>';
+};
+?>
+
 <div class="container">
     <h1 class="text-center">Sign Up To Our Websites</h1>
     <form action="/PHP/Registration/signup.php" method="post">
   <div class="mb-3">
     <label for="username" class="form-label">Usernames</label>
-    <input type="email" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
