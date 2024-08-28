@@ -1,3 +1,29 @@
+<?php
+include("./partials/dbconnect.php");
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+$login = false;
+$showError = false;
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+ $sql = "select * from users where username = '$username' AND password = '$password'";
+  $result = mysqli_query($conn, $sql);
+  $num = mysqli_num_rows($result);
+  if($num ==1 ){
+    $login = true;
+    session_start();
+    $_SESSION['loggedin'] =true;
+    $_SESSION['username'] =true;
+
+  }
+else{
+  $showError = true;
+}
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +35,21 @@
 </head>
 <body>
 <?php include('partials/_nav.php'); ?>
+<?php
+if($login){
+echo
+'<div class="alert alert-success" role="alert">
+ You are loged in!
+</div>';
+};
+?>
 <div id="login">
         <h3 class="text-center text-white pt-5">Login form</h3>
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
+                        <form id="login-form" class="form" action="./login.php" method="post">
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
                                 <label for="username" class="text-info">Username:</label><br>
