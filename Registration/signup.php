@@ -1,15 +1,25 @@
 <?php
-include("./partials/dbconnect.php");
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
 $showAlert = false;
 $showError = false;
+include("./partials/dbconnect.php");
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
 $username = $_POST['username'];
 $password = $_POST['password'];
 $cpassword = $_POST['cpassword'];
 
 $exists = false;
 
-if(($password == $cpassword) && $exists == false){
+// check wheather if username exists
+$existsql = "SELECT * FROM `users` WHERE username = '$username'";
+
+$result = mysqli_query($conn, $existsql);
+$numExistRow = mysqli_num_rows($result);
+if($numExistRow>0){
+  $showError = "Username already exists";
+}else{
+  // $exists = false;
+if(($password == $cpassword)){
  $sql = "INSERT INTO users (username, password, dt) VALUES ('$username', '$password', CURRENT_TIMESTAMP)";
   $result = mysqli_query($conn, $sql);
   if($result){
@@ -17,7 +27,8 @@ if(($password == $cpassword) && $exists == false){
 
   }
 }else{
-  $showError = true;
+  $showError = "Password do not match";
+}
 }
 }
 ?>
@@ -42,12 +53,10 @@ echo
 ?>
 <?php
 if($showError){
-echo
-'<div class="alert alert-warning" role="alert">
- Password did not match!
-</div>';
+    echo '<div class="alert alert-warning" role="alert">' . $showError . '</div>';
 };
 ?>
+
 
 <div class="container">
     <h1 class="text-center">Sign Up To Our Websites</h1>
